@@ -94,6 +94,7 @@
       z-index: 9998;
       pointer-events: none;
       opacity: 0.85;
+      transition: var(--transition);
     }
     .vein-svg {
       width: 100%;
@@ -177,7 +178,7 @@
        ------------------------------------------- */
     .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 60px;}
     .problem-card { background: var(--white); padding: 40px; border-radius: var(--radius-lg); box-shadow: var(--shadow-float); border: 1px solid var(--border-color); }
-    .problem-stat { font-size: 3.5rem; font-weight: 900; color: #ef4444; line-height: 1; margin-bottom: 16px; }
+    .problem-stat { font-size: 3.5rem; font-weight: 900; color: var(--blood-red); line-height: 1; margin-bottom: 16px; }
     .problem-card h4 { font-size: 1.5rem; color: var(--navy-brand); font-weight: 800; margin-bottom: 12px; }
     .problem-card p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 0; }
     
@@ -310,7 +311,8 @@
       
       .footer-grid { grid-template-columns: 1fr; gap: 40px; }
       
-      .vein-scroll-container { display: none; }
+      /* Make vein tracker transparent so it doesn't block text on tablets */
+      .vein-scroll-container { width: 35px; right: 5px; opacity: 0.4; }
     }
     
     @media (max-width: 768px) {
@@ -325,6 +327,9 @@
       .timeline::before { left: 20px; }
       .tl-item { padding-left: 55px; }
       .tl-left .tl-dot, .tl-right .tl-dot { left: 10px; }
+      
+      /* Keep it very subtle on mobile */
+      .vein-scroll-container { width: 25px; right: 2px; opacity: 0.3; }
     }
   </style>
 
@@ -686,8 +691,8 @@
   <section class="section-dark" id="faqs">
     <div class="container">
       <div class="section-head reveal">
-        <span class="tag">Pitch Q&A</span>
-        <h2>Frequently Asked Questions</h2>
+        <span class="tag">Common Questions</span>
+        <h2>Everything You Need to Know</h2>
         <p>Comprehensive answers spanning clinical use, finance, and engineering.</p>
       </div>
 
